@@ -76,6 +76,7 @@
             "@php -r \"is_dir('storage/framework/cache') || mkdir('storage/framework/cache', 0777, true);\""
         ],
         "vercel": [
+            "composer install",
             "@composer run vercel-prep",
             "@php artisan config:cache",
             "@php artisan route:cache",
