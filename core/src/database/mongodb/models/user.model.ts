@@ -36,7 +36,7 @@ const userSchema = new Schema<IUser>(
   }
 );
 
-// Index for faster queries
-userSchema.index({ email: 1 });
+// Note: email index is automatically created by unique: true above
+// No need for explicit index declaration to avoid duplicate warning
 
 export const UserModel = mongoose.model<IUser>('User', userSchema);

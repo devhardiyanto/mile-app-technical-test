@@ -1,15 +1,29 @@
-import client from '@/lib/client'
-import type { Movie } from '@/types/movie'
-import type { MovieResponse } from '@/types/api'
+import client from '@/lib/client';
+import type { Task, CreateTaskInput, UpdateTaskInput, GetTasksQuery } from '@/types/task';
+import type { ApiResponse, PaginatedResponse } from '@/types/api';
 
-export const MovieService = {
-  async getMovies(params?: { page?: number; Title?: string }): Promise<MovieResponse<Movie>> {
-    const { data } = await client.get('/movies/search', { params })
-    return data
+export const TaskService = {
+  async getTasks(query?: GetTasksQuery): Promise<PaginatedResponse<Task>> {
+    const { data } = await client.get<ApiResponse<PaginatedResponse<Task>>>('/tasks', { params: query });
+    return data.responseObject;
   },
 
-  async getMovieById(id: string): Promise<Movie> {
-    const { data } = await client.get(`/movies/${id}`)
-    return data
-  }
-}
+  async getTaskById(id: string): Promise<Task> {
+    const { data } = await client.get<ApiResponse<Task>>(`/tasks/${id}`);
+    return data.responseObject;
+  },
+
+  async createTask(input: CreateTaskInput): Promise<Task> {
+    const { data } = await client.post<ApiResponse<Task>>('/tasks', input);
+    return data.responseObject;
+  },
+
+  async updateTask(id: string, input: UpdateTaskInput): Promise<Task> {
+    const { data } = await client.put<ApiResponse<Task>>(`/tasks/${id}`, input);
+    return data.responseObject;
+  },
+
+  async deleteTask(id: string): Promise<void> {
+    await client.delete(`/tasks/${id}`);
+  },
+};
