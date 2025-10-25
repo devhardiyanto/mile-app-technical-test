@@ -18,7 +18,7 @@
 
     "installCommand": "npm ci || pnpm i || yarn --immutable || true",
 
-    "buildCommand": "composer install --no-dev --prefer-dist --optimize-autoloader && composer run vercel-prep && composer run vercel || true && npm run build",
+    "buildCommand": "./vercel-build.sh",
 
     "headers": [
         {
