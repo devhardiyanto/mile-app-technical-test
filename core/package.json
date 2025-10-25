@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && tsc-alias",
     "start:dev": "node --import=tsx --watch src/index.ts",
     "start:prod": "node dist/index.js",
     "check": "biome check --write",
@@ -48,6 +48,7 @@
     "pino-pretty": "^13.1.2",
     "supertest": "^7.1.4",
     "ts-node-dev": "^2.0.0",
+    "tsc-alias": "^1.8.10",
     "tsx": "4.20.4",
     "typescript": "5.9.2",
     "vite-tsconfig-paths": "5.1.4",
