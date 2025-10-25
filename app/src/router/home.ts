@@ -1,4 +1,4 @@
-// Layouts
+/* // Layouts
 import LayoutDefault from "@/layouts/default.vue";
 
 // Pages
@@ -22,3 +22,4 @@ const home = [
 ];
 
 export default home;
+ */

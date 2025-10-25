@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import type { Task, CreateTaskInput, UpdateTaskInput, GetTasksQuery } from '@/types/task';
-import type { PaginatedResponse } from '@/types/api';
+// import type { PaginatedResponse } from '@/types/api';
 import { TaskService } from '@/services/task.service';
 import { toast } from 'sonner';
 
