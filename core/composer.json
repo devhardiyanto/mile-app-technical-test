@@ -71,6 +71,10 @@
         "pre-package-uninstall": [
             "Illuminate\\Foundation\\ComposerScripts::prePackageUninstall"
         ],
+        "vercel-prep": [
+            "@php -r \"is_dir('storage/framework/views') || mkdir('storage/framework/views', 0777, true);\"",
+            "@php -r \"is_dir('storage/framework/cache') || mkdir('storage/framework/cache', 0777, true);\""
+        ],
         "vercel": [
             "@php artisan config:cache",
             "@php artisan route:cache",
