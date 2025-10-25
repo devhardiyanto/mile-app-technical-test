@@ -29,6 +29,5 @@
         { "source": "/build/(.*)", "destination": "/public/build/$1" },
         { "source": "/storage/(.*)", "destination": "/public/storage/$1" },
         { "source": "/(.*)", "destination": "/api/index.php" }
-    ],
-    "crons": [{ "path": "/api/schedule.php", "schedule": "*/15 * * * *" }]
+    ]
 }
