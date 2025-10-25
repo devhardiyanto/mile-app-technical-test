@@ -6,7 +6,7 @@ const { connectMongoDB } = require("../dist/database/mongodb/connection");
 // Initialize MongoDB connection for serverless
 let isConnected = false;
 
-module.exports = async (req: any, res: any) => {
+module.exports = async (req, res) => {
   try {
     // Connect to MongoDB only once (reuse connection between invocations)
     if (!isConnected) {
@@ -18,6 +18,6 @@ module.exports = async (req: any, res: any) => {
     return app(req, res);
   } catch (error) {
     console.error("Serverless function error:", error);
-    return res.status(500).json({ error: "Internal server error" });
+    return res.status(500).json({ error: "Internal server error", message: error.message });
   }
 };
