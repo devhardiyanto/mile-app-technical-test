@@ -1,5 +1,16 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import './styles/tailwind/index.css'
 
-createApp(App).mount('#app')
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
+import App from './AppBak.vue'
+import router from './router'
+
+const app = createApp(App)
+const pinia = createPinia()
+
+pinia.use(piniaPluginPersistedstate); // <- aktifkan persist untuk semua store yg di-enable
+
+app.use(pinia)
+app.use(router)
+app.mount('#app')
