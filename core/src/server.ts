@@ -11,6 +11,7 @@ import { env } from "@/common/utils/env.config";
 // Routes
 import { healthCheckRouter } from "@/api/health/health.router";
 import { authRouter } from "@/api/auth/auth.router";
+import { userRouter } from "@/api/user/user.router";
 
 const logger = pino({ name: "server start" });
 const app: Express = express();
@@ -34,6 +35,7 @@ app.use(requestLogger);
 // Routes
 app.use("/health", healthCheckRouter);
 app.use("/api/auth", authRouter);
+app.use("/api/users", userRouter);
 
 // Swagger UI
 app.use(openAPIRouter);
